@@ -33,18 +33,8 @@ const Footer = () => {
           <li className="fListItem">Restaurant reservations </li>
           <li className="fListItem">Travel Agents </li>
         </ul>
-        <ul className="fList">
-          <li className="fListItem">Curtomer Service</li>
-          <li className="fListItem">Partner Help</li>
-          <li className="fListItem">Careers</li>
-          <li className="fListItem">Sustainability</li>
-          <li className="fListItem">Press center</li>
-          <li className="fListItem">Safety Resource Center</li>
-          <li className="fListItem">Investor relations</li>
-          <li className="fListItem">Terms & conditions</li>
-        </ul>
       </div>
-      <div className="fText">Copyright © 2022 Lamabooking.</div>
+      <div className="fText">Copyright © 2022 Djangobookings.</div>
     </div>
   );
 };

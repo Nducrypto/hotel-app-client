@@ -1,4 +1,4 @@
-import "./propertyList.css";
+import "./propertytype.css";
 import useFetch from "../../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const PropertyList = () => {
 
   return (
     <main className="pContainer">
-      <h3>PropertyList</h3>
+      <h3>Explore Property Type</h3>
 
       <div className="pList">
         {loading ? (

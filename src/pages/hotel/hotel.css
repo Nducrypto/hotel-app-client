@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
 }
 
 .hotelWrapper {
@@ -57,7 +56,7 @@
 
 .hotelImgWrapper {
   width: 33%;
-  border: 1px solid red;
+  border: 1px solid orange;
 margin-top: 1rem;
 }
 

@@ -1,19 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./searchItem.css";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SearchItem = ({ hotel, dates }) => {
+const SearchItem = ({ hotel }) => {
   const navigate = useNavigate();
 
   const handleCheckRooms = () => {
-    if (!dates.length) {
-      return "please fill dates";
-    } else {
-      navigate(`/hotels/${hotel._id}`, {
-        state: {
-          dates,
-        },
-      });
-    }
+    navigate(`/hotels/${hotel._id}`);
   };
   return (
     <div className="searchItem">
@@ -31,8 +25,10 @@ const SearchItem = ({ hotel, dates }) => {
       </div>
       <div className="siDetails">
         <div className="siRating">
-          <span>Excellent</span>
           <button>{hotel.rating}</button>
+          {/* <span> */}
+          <FontAwesomeIcon icon={faStar} style={{ color: "yellow" }} />
+          {/* </span> */}
         </div>
         <div className="siDetailTexts">
           <button onClick={handleCheckRooms} className="siCheckButton">

@@ -1,4 +1,4 @@
-import "./featured.css";
+import "./destinations.css";
 import useFetch from "../../Hooks/useFetch";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
@@ -42,7 +42,7 @@ const Featured = () => {
   ];
   return (
     <div className="p-container">
-      <h2 style={{ textAlign: "center" }}>Featured</h2>
+      <h2 style={{ textAlign: "center" }}>Explore Destinations</h2>
 
       {loading ? (
         <div style={{ textAlign: "center", fontSize: "1.5rem" }}>

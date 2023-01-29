@@ -1,0 +1,47 @@
+.Pcontainer{
+    width: 50%; 
+    margin: 1% 25%;
+}
+.Pcontainer >h1{
+text-align: center;
+}
+
+.Plists{
+    display: flex; 
+    justify-content: space-between;
+    margin-top: .5rem;
+}
+
+.PdesContainer{
+    margin-top: 1rem;
+}
+.desHeader{
+    font-size: 2rem;
+    text-align: center;
+
+}
+.roomDesc{
+    text-align: center;
+    font-weight: 500;
+}
+.selectedMap{
+    margin-top: 2rem;
+    border: 1px solid red;
+    background-color: midnightblue;
+    color: white;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.Pcontainer >button{
+    width: 50%; 
+    margin: 10%  25%;
+    background-color: blue;
+    color: white;
+    padding: .5rem .5rem .5rem .5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+.Pcontainer >button:hover{
+    background-color: rgb(129, 138, 53);
+   
+}

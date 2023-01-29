@@ -1,14 +1,14 @@
 .footer{
   width: 100%;
-  width: 1024px;
   font-size: 12px;
+  margin-top: 3rem;
 }
 
 .fLists{
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .fList{
@@ -20,4 +20,16 @@
   margin-bottom: 10px;
   color: #003580;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+
+  .fLists{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+  }
+  .fList{
+   text-align: center;}
+  
 }

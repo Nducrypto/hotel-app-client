@@ -1,7 +1,5 @@
 import "./hotel.css";
-import Navbar from "../../components/navbar/Navbar";
-// import MailList from "../../components/mailList/MailList";
-// import Footer from "../../components/footer/Footer";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
@@ -13,7 +11,6 @@ import { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 import { useLocation, useNavigate } from "react-router-dom";
 // import { useAuthContext } from "../../States/Context/AuthContext";
-import Reserve from "../../components/reserve/Reserve";
 import DateOptions from "../../components/DateOptions/DateOptions";
 
 const Hotel = () => {
@@ -24,14 +21,21 @@ const Hotel = () => {
 
   const [slideNumber, setSlideNumber] = useState(0);
   const [openCarousel, setOpenCarousel] = useState(false);
-  const [openReserve, setOpenReserve] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState([]);
   const [options, setOptions] = useState({
     adult: 1,
     room: 1,
   });
 
-  const [dates, setDates] = useState(location.state.dates);
+  // let tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+
+  const [dates, setDates] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
 
   let hotel = location.pathname.split("/")[2];
   const { data, loading } = useFetch(`/hotels/find/${hotel}`);
@@ -45,7 +49,7 @@ const Hotel = () => {
   };
 
   const days = dayDifference(dates[0]?.endDate, dates[0]?.startDate);
-
+  console.log(days);
   const handleOpen = (i) => {
     setSlideNumber(i);
     setOpenCarousel(true);
@@ -55,9 +59,9 @@ const Hotel = () => {
     let newSlideNumber;
 
     if (direction === "l") {
-      newSlideNumber = slideNumber === 0 ? 2 : slideNumber - 1;
+      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
     } else {
-      newSlideNumber = slideNumber === 2 ? 0 : slideNumber + 1;
+      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
     }
 
     setSlideNumber(newSlideNumber);
@@ -81,7 +85,7 @@ const Hotel = () => {
         : selectedRoom.filter((item) => item !== room)
     );
   };
-
+  console.log(selectedRoom);
   const totalPrice = () => {
     // converted an array of string to a Number by mapping the state
     // let ndu = hotelDetail.map((p) => Number(p.price));
@@ -116,7 +120,6 @@ const Hotel = () => {
       alldates.includes(new Date(p).getTime())
     );
 
-    console.log(isFound);
     return isFound;
   };
 
@@ -128,14 +131,15 @@ const Hotel = () => {
         selectedRoom,
         alldates,
         totalPrice: totalPrice(),
+        name: data.name,
+        type: data.type,
+        dates,
       },
     });
   };
 
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
-      <Navbar />
-
       {loading ? (
         "Loading"
       ) : (
@@ -198,7 +202,9 @@ const Hotel = () => {
                         )}
                       </div>
                       <input
-                        disabled={isAvailable(data?.rooms[i]?.unavailableDates)}
+                        disabled={
+                          !days || isAvailable(data?.rooms[i]?.unavailableDates)
+                        }
                         type="checkbox"
                         onChange={(e) => {
                           handleSelect(e, data?.rooms[i]);
@@ -206,6 +212,7 @@ const Hotel = () => {
                         className="h-input"
                       />
                     </div>
+
                     <img
                       src={room}
                       alt=""
@@ -248,16 +255,24 @@ const Hotel = () => {
               <h2>
                 <b> ${totalPrice() * days * options.room}</b> for {days} day(s)
               </h2>
-
-              <button onClick={handleClick}>Book Now!</button>
+              <button
+                disabled={!days || !selectedRoom.length}
+                onClick={handleClick}
+                style={{
+                  cursor: !days || !selectedRoom.length ? "not-allowed" : "",
+                  backgroundColor: !days || !selectedRoom.length ? "red" : "",
+                }}
+              >
+                {!days
+                  ? "Choose Date To Continue"
+                  : !selectedRoom.length
+                  ? "Select Room To Continue"
+                  : "Book Now!"}
+              </button>
             </div>
           </div>
-          {/* <MailList /> */}
-          {/* <Footer /> */}
         </div>
       )}
-
-      {openReserve && <Reserve setOpen={setOpenReserve} hotelId={hotel} />}
     </div>
   );
 };

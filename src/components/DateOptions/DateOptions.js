@@ -1,6 +1,6 @@
 import { DateRange } from "react-date-range";
-import { format } from "date-fns";
 import "./dateoptions.css";
+import { format } from "date-fns";
 
 const DateOptions = ({
   options,
@@ -27,12 +27,15 @@ const DateOptions = ({
     <div className="D-container">
       <div className="D-headerSearch">
         <span
+          className="D-headerOpenDate"
           onClick={() => setOpenDate(!openDate)}
-          className="D-headerSearchText"
-        >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
-          dates[0].endDate,
-          "MM/dd/yyyy"
-        )}`}</span>
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+            dates[0].endDate,
+            "MM/dd/yyyy"
+          )}`}
+        </span>
         {openDate && (
           <DateRange
             editableDateInputs={true}
