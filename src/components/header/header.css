@@ -188,7 +188,7 @@
 
 @media screen and (max-width: 600px){
   .header {
-    height: 60vh;
+    height: 70vh;
   
   }
  
@@ -217,7 +217,7 @@
 }
 @media screen and (max-width: 375px){
   .header {
-    height: 68vh;
+    height: 72vh;
   
   }
  
