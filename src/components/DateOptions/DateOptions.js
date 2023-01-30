@@ -29,7 +29,6 @@ const DateOptions = ({
         <span
           className="D-headerOpenDate"
           onClick={() => setOpenDate(!openDate)}
-          style={{ display: "flex", justifyContent: "space-between" }}
         >
           {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
             dates[0].endDate,

@@ -45,3 +45,16 @@ text-align: center;
     background-color: rgb(129, 138, 53);
    
 }
+
+@media screen and (max-width: 600px){
+    .Pcontainer{
+        width: 80%; 
+        margin: 1% 10%;
+    }
+}
+@media screen and (max-width: 375px){
+    .Pcontainer{
+        width: 80%; 
+        margin: 1% 10%;
+    }
+}

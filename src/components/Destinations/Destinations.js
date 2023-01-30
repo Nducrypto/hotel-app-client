@@ -50,7 +50,7 @@ const Featured = () => {
         </div>
       ) : (
         <Swiper
-          slidesPerView={3}
+          slidesPerView={2}
           spaceBetween={20}
           modules={[Pagination, Navigation]}
           loopFillGroupWithBlank={true}

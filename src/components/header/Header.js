@@ -40,7 +40,8 @@ const Header = () => {
 
         <>
           <h1 className="headerTitle">
-            A TRUE PARISIAN HOME IN THE HEART
+            A TRUE <span style={{ color: "orange" }}> PARISIAN HOME IN</span>{" "}
+            THE HEART
             <br />
             <span style={{ color: "red" }}>OF EBUBE-DJANGO-MIKEL</span>
           </h1>
@@ -50,7 +51,7 @@ const Header = () => {
           <div className="unlockContainer">
             <div className="unlock">Unlock instant savings..</div>
             <p>You could get an extra 10% off with Member Prices</p>
-            <button className="headerBtn">Sign in / Register</button>
+            <button className="headerBtnSignin">Sign in / Register</button>
           </div>
         </>
       </div>
@@ -66,7 +67,7 @@ const Header = () => {
         </div>
 
         <div className="headerSearchItem">
-          <button className="headerBtn" onClick={handleSearch}>
+          <button className="headerBtnSearch" onClick={handleSearch}>
             Search
           </button>
         </div>

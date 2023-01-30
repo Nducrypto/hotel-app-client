@@ -7,19 +7,20 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
+  width: auto;
   height: 100vh;
 
 }
 
 .headerContainer {
   width: 100%;
-  max-width: 1024px;
+  /* max-width: 1024px; */
   margin: 20px 0px 100px 0px;
 }
 .headerTitle {
  text-align: center;
  margin-top: 9rem;
+ color: springgreen;
 }
 
 .headerContainer.listMode {
@@ -53,13 +54,24 @@
   text-align: center;
   margin-top: 6rem;
 }
-.headerBtn {
+.headerBtnSignin {
   background-color: #0071c2;
   color: white;
   font-weight: 500;
   border: none;
   padding: 10px;
   cursor: pointer;
+  border-radius: 1rem;
+}
+.headerBtnSearch {
+  background-color: #0071c2;
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 1rem;
+
 }
 .unlock{
   font-size: 1.5rem;
@@ -202,4 +214,38 @@
    margin-top: .7rem;
   }
   
+}
+@media screen and (max-width: 375px){
+  .header {
+    height: 68vh;
+  
+  }
+ 
+  .headerTitle {
+    margin-top: 3rem;
+    font-size: 1.1rem;
+   }
+   .unlockContainer{
+    margin-top: 1rem;
+  }
+  .searchInput {
+    width: 14rem;
+    height: 2rem;
+    border-radius: 2rem;
+  
+  }
+  .options {
+   right: 1rem;
+   margin-top: .7rem;
+  }
+  .date {
+   left: 1rem;
+   margin-top: .7rem;
+  }
+  
+  .headerBtnSearch {
+    border-radius: 2rem;
+    padding: 8px;
+    margin-top: -2rem;
+  }
 }

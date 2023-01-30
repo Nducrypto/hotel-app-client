@@ -9,7 +9,12 @@
   gap: 20px;
   padding: 4rem 0 6rem 0;
 }
-
+.mailTitle{
+  text-align: center;
+}
+.mailDesc{
+  text-align: center;
+}
 .mailInputContainer>input{
   width: 300px;
   height: 30px;
@@ -38,6 +43,30 @@
 
   .mailInputContainer>button{
     height: 35px;
+  }
+  .mailTitle{
+    text-align: center;
+  }
+  
+  .mailDesc{
+    text-align: center;
+  }
+  
+}
+@media screen and (max-width: 375px){
+  .mailInputContainer>input{
+    width: 200px;
+    height: 15px;
+  }
+
+  .mailInputContainer>button{
+    height: 35px;
+  }
+  .mailTitle{
+    text-align: center;
+  }
+  .mailDesc{
+    text-align: center;
   }
   
 }
