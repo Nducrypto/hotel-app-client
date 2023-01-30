@@ -49,7 +49,8 @@ const DateOptions = ({
           <span
             onClick={() => setOpenOptions(!openOptions)}
             className="D-headerSearchText"
-          >{`${options.adult} adult · ${options.room}room`}</span>
+          >{`${options.adult} adult `}</span>
+          {/* · ${options.room}room */}
           {openOptions && (
             <div className="D-options">
               <div className="D-optionItem">
@@ -73,7 +74,7 @@ const DateOptions = ({
                 </div>
               </div>
 
-              <div className="D-optionItem">
+              {/* <div className="D-optionItem">
                 <span className="D-optionText">Room</span>
                 <div className="D-optionCounter">
                   <button
@@ -92,7 +93,7 @@ const DateOptions = ({
                     +
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           )}
         </div>
