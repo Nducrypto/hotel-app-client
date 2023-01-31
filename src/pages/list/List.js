@@ -25,11 +25,10 @@ const List = () => {
   const [destination, setDestination] = useState(
     location.state.destination || ""
   );
-
-  const type = location.state.type;
+  const [type, setType] = useState(location.state.type || "");
 
   const { data, loading, reFetch } = useFetch(
-    type ? `/hotels?type=${type}` : `/hotels?city=${destination}`
+    `/hotels?type=${type}&city=${destination}`
   );
 
   const handleClick = () => {
@@ -47,6 +46,11 @@ const List = () => {
               <input
                 placeholder={destination}
                 onChange={(e) => setDestination(e.target.value)}
+                type="text"
+              />
+              <input
+                placeholder={type}
+                onChange={(e) => setType(e.target.value)}
                 type="text"
               />
             </div>
