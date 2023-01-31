@@ -1,12 +1,26 @@
 import "./list.css";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-
+import { DateRange } from "react-date-range";
+import { format } from "date-fns";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../Hooks/useFetch";
 
 const List = () => {
   const location = useLocation();
+
+  const [openDate, setOpenDate] = useState(false);
+  const [error, setError] = useState("");
+
+  // let tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+
+  const [dates, setDates] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
 
   const [destination, setDestination] = useState(
     location.state.destination || ""
@@ -36,7 +50,20 @@ const List = () => {
                 type="text"
               />
             </div>
-
+            <div className="lsItem">
+              <label>Checkin - Checkout Date</label>
+              <span onClick={() => setOpenDate(!openDate)}>{`${format(
+                dates[0].startDate,
+                "MM/dd/yyyy"
+              )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
+              {openDate && (
+                <DateRange
+                  onChange={(item) => setDates([item.selection])}
+                  minDate={new Date()}
+                  ranges={dates}
+                />
+              )}
+            </div>
             <button onClick={handleClick}>Search</button>
           </div>
           <div className="listResult">
@@ -45,7 +72,13 @@ const List = () => {
             ) : (
               <>
                 {data.map((hotel) => (
-                  <SearchItem hotel={hotel} key={hotel._id} />
+                  <SearchItem
+                    hotel={hotel}
+                    key={hotel._id}
+                    dates={dates}
+                    setError={setError}
+                    error={error}
+                  />
                 ))}
               </>
             )}

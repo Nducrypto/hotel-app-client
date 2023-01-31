@@ -10,14 +10,12 @@ import {
 import { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 import { useLocation, useNavigate } from "react-router-dom";
-// import { useAuthContext } from "../../States/Context/AuthContext";
-import DateOptions from "../../components/DateOptions/DateOptions";
+import Options from "../../components/DateOptions/Options";
 
 const Hotel = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [openOptions, setOpenOptions] = useState(false);
-  const [openDate, setOpenDate] = useState(false);
 
   const [slideNumber, setSlideNumber] = useState(0);
   const [openCarousel, setOpenCarousel] = useState(false);
@@ -27,29 +25,11 @@ const Hotel = () => {
     room: 1,
   });
 
-  // let tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
-
-  const [dates, setDates] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-
+  const dates = location.state.dates;
+  const days = location.state.days;
   let hotel = location.pathname.split("/")[2];
   const { data, loading } = useFetch(`/hotels/find/${hotel}`);
 
-  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-
-  const dayDifference = (date1, date2) => {
-    const timeDiference = Math.abs(date2?.getTime() - date1?.getTime());
-    const diffDays = Math.ceil(timeDiference / MILLISECONDS_PER_DAY);
-    return diffDays;
-  };
-
-  const days = dayDifference(dates[0]?.endDate, dates[0]?.startDate);
-  console.log(days);
   const handleOpen = (i) => {
     setSlideNumber(i);
     setOpenCarousel(true);
@@ -85,7 +65,6 @@ const Hotel = () => {
         : selectedRoom.filter((item) => item !== room)
     );
   };
-  console.log(selectedRoom);
   const totalPrice = () => {
     // converted an array of string to a Number by mapping the state
     // let ndu = hotelDetail.map((p) => Number(p.price));
@@ -113,7 +92,6 @@ const Hotel = () => {
     return dates;
   };
   const alldates = getDatesInRange(dates[0]?.startDate, dates[0]?.endDate);
-  console.log(alldates);
 
   const isAvailable = (unavailableDates) => {
     const isFound = unavailableDates?.some((p) =>
@@ -169,13 +147,9 @@ const Hotel = () => {
 
           <div className="hotelWrapper">
             <h1 className="hotelTitle">{data.name}</h1>
-            <DateOptions
+            <Options
               options={options}
               setOptions={setOptions}
-              dates={dates}
-              setDates={setDates}
-              openDate={openDate}
-              setOpenDate={setOpenDate}
               openOptions={openOptions}
               setOpenOptions={setOpenOptions}
             />
@@ -202,9 +176,7 @@ const Hotel = () => {
                         )}
                       </div>
                       <input
-                        disabled={
-                          !days || isAvailable(data?.rooms[i]?.unavailableDates)
-                        }
+                        disabled={isAvailable(data?.rooms[i]?.unavailableDates)}
                         type="checkbox"
                         onChange={(e) => {
                           handleSelect(e, data?.rooms[i]);
@@ -263,11 +235,7 @@ const Hotel = () => {
                   backgroundColor: !days || !selectedRoom.length ? "red" : "",
                 }}
               >
-                {!days
-                  ? "Choose Date To Continue"
-                  : !selectedRoom.length
-                  ? "Select Room To Continue"
-                  : "Book Now!"}
+                {!selectedRoom.length ? "Select Room To Continue" : "Book Now!"}
               </button>
             </div>
           </div>

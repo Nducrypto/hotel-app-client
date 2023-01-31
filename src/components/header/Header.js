@@ -51,7 +51,7 @@ const Header = () => {
           <div className="unlockContainer">
             <div className="unlock">Unlock instant savings..</div>
             <p>You could get an extra 10% off with Member Prices</p>
-            <button className="headerBtnSignin">Sign in / Register</button>
+            {/* <button className="headerBtnSignin">Sign in / Register</button> */}
           </div>
         </>
       </div>

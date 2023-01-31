@@ -55,9 +55,10 @@
 }
 
 .hotelImgWrapper {
-  width: 33%;
-  border: 1px solid orange;
+  width: 28.5%;
 margin-top: 1rem;
+padding: 1rem 1rem 1rem 1rem;
+box-shadow: 2px 2px 5px white;
 }
 
 .hotelImg {

@@ -1,18 +1,6 @@
-import { DateRange } from "react-date-range";
-import "./dateoptions.css";
-import { format } from "date-fns";
+import "./options.css";
 
-const DateOptions = ({
-  options,
-  setOptions,
-  dates,
-  setDates,
-  openDate,
-  setOpenDate,
-
-  openOptions,
-  setOpenOptions,
-}) => {
+const DateOptions = ({ options, setOptions, openOptions, setOpenOptions }) => {
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -26,25 +14,6 @@ const DateOptions = ({
   return (
     <div className="D-container">
       <div className="D-headerSearch">
-        <span
-          className="D-headerOpenDate"
-          onClick={() => setOpenDate(!openDate)}
-        >
-          {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
-            dates[0].endDate,
-            "MM/dd/yyyy"
-          )}`}
-        </span>
-        {openDate && (
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setDates([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={dates}
-            className="D-date"
-            minDate={new Date()}
-          />
-        )}
         <div>
           <span
             onClick={() => setOpenOptions(!openOptions)}
