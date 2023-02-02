@@ -3,12 +3,13 @@
   display: flex;
   justify-content: center;
   position: relative;
-  background-image: url("../../assests/headerbedroom.jpg");
+  background-image: url("https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzIwfHxyb29tcyUyMGhvdGVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: auto;
-  height: 100vh;
+  height: auto;
+  /* filter: brightness(20%); */
 
 }
 
@@ -21,6 +22,8 @@
  text-align: center;
  margin-top: 9rem;
  color: springgreen;
+ font-size: 3rem;
+
 }
 
 .headerContainer.listMode {
@@ -180,6 +183,10 @@
     height: 60vh;
   
   }
+  .headerTitle{
+ font-size: 2rem;
+
+  }
   .headerSearch {
     width: 90%;
   }
@@ -188,13 +195,14 @@
 
 @media screen and (max-width: 600px){
   .header {
-    height: 70vh;
+    height: 50vh;
+    padding: 1rem 1rem 0 1rem;
   
   }
  
   .headerTitle {
     margin-top: 3rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
    }
    .unlockContainer{
     margin-top: 1rem;
@@ -204,6 +212,10 @@
     height: 2.4rem;
     border-radius: 2rem;
   
+  }
+  .headerDesc {
+    font-size: 1.1rem;
+color: lawngreen;
   }
   .options {
    right: 1rem;
@@ -217,16 +229,18 @@
 }
 @media screen and (max-width: 375px){
   .header {
-    height: 72vh;
+    height: 62vh;
+    padding: 1rem 1rem 0 1rem;
   
   }
  
   .headerTitle {
     margin-top: 3rem;
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
    }
    .unlockContainer{
     margin-top: 1rem;
+
   }
   .searchInput {
     width: 14rem;
