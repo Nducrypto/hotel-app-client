@@ -31,9 +31,9 @@ const List = () => {
     `/hotels?type=${type}&city=${destination}`
   );
 
-  const handleClick = () => {
-    reFetch();
-  };
+  // const handleClick = () => {
+  //   reFetch();
+  // };
 
   return (
     <div>
@@ -68,7 +68,7 @@ const List = () => {
                 />
               )}
             </div>
-            <button onClick={handleClick}>Search</button>
+            {/* <button onClick={handleClick}>Search</button> */}
           </div>
           <div className="listResult">
             {loading ? (
