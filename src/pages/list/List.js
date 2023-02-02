@@ -27,7 +27,7 @@ const List = () => {
   );
   const [type, setType] = useState(location.state.type || "");
 
-  const { data, loading, reFetch } = useFetch(
+  const { data, loading } = useFetch(
     `/hotels?type=${type}&city=${destination}`
   );
 
