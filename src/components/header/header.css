@@ -199,7 +199,10 @@
     padding: 1rem 1rem 0 1rem;
   
   }
- 
+  .headerList {
+    gap: 20px;
+  }
+  
   .headerTitle {
     margin-top: 3rem;
     font-size: 1rem;
@@ -233,7 +236,10 @@ color: lawngreen;
     padding: 1rem 1rem 0 1rem;
   
   }
- 
+  .headerList {
+    gap: 20px;
+  }
+  
   .headerTitle {
     margin-top: 3rem;
     /* font-size: 1.1rem; */
