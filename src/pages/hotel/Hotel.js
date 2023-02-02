@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 import { useLocation, useNavigate } from "react-router-dom";
-import Options from "../../components/DateOptions/Options";
+import Options from "../../components/Options/Options";
 
 const Hotel = () => {
   const location = useLocation();
