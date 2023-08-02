@@ -33,7 +33,7 @@
     background-color: darkslateblue;
    
     border-radius: 20px;
-    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
     overflow: hidden;
   }
   
@@ -164,7 +164,7 @@
   
    
     .content{
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 600;
          
         }
@@ -200,23 +200,13 @@
     }
   }
 
-  
+
   @media (max-width: 375px) {
     .write-up {
       width: 70px;
       padding: 10px;
     }
-  
-    .write-up h2 {
-      font-size: 12px;
-    }
-  
-   
-    .content{
-        font-size: 1rem;
-        font-weight: 500;
-         
-        }
+    
     .write-up-1 {
       top: 5%;
       left: 35%;
