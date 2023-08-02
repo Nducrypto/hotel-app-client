@@ -22,7 +22,7 @@ const Features = () => {
     setOurFeature((prev) => {
       const item = [...prev];
       const moveFirstToLast = item.push(item.shift());
-
+      console.log(moveFirstToLast);
       return item;
     });
   }, 300);
