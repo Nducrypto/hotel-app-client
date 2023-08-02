@@ -63,7 +63,7 @@ const Features = () => {
           <div className="screen">
             {ourFeature.map((writeUp, index) => (
               <div className="phone-content" key={index}>
-                {index === 1 && <h1>{writeUp.content}</h1>}
+                {Object.is(index, 0) && <h1>{writeUp.content}</h1>}
               </div>
             ))}
           </div>

@@ -9,10 +9,7 @@ import React, { useEffect } from "react";
 import Payment from "./components/Payment/Payment";
 import Success from "./components/Success/Success";
 import Layout from "./components/Layout/Layout";
-import {
-  ScrollRestoration,
-  // ScrollToTop,
-} from "./components/ScrollControl/ScrollControl";
+import { ScrollRestoration } from "./components/ScrollControl/ScrollControl";
 // import Form from "./Form";
 
 function App() {
