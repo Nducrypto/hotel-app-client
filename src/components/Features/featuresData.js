@@ -1,26 +1,26 @@
 export const data = [
   {
     title: "1",
-    content: "StayBook",
+    content: "Book",
   },
   {
     title: "2",
-    content: "Lodging",
+    content: "Lodge",
   },
   {
     title: "3",
-    content: "TravelStay",
+    content: "Stay",
   },
   {
     title: "4",
-    content: "ReserveStay",
+    content: "Fun",
   },
   {
     title: "5",
-    content: "StayFinder",
+    content: "Blizz",
   },
   {
     title: "6",
-    content: "SwiftStay",
+    content: "Swift",
   },
 ];

@@ -53,8 +53,8 @@ const Features = () => {
       <div className="write-ups-container">
         {ourFeature.map((writeUp, index) => (
           <div className={`write-up write-up-${index + 1}`} key={index}>
-            <div className="content">{writeUp.title}</div>
-            <p className="content">{writeUp.content}</p>
+            <div className="title">{writeUp.title}</div>
+            <div className="content">{writeUp.content}</div>
           </div>
         ))}
       </div>
