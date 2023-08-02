@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { data } from "./featuresData";
 import "./features.css";
 
 const Features = () => {
   const [ourFeature, setOurFeature] = useState(data);
-  console.log(ourFeature);
   const elementRef = useRef();
 
   const [isVisible, setIsVisible] = useState(false);
@@ -27,6 +26,7 @@ const Features = () => {
     });
   }, 300);
 
+  const handleScrollCallback = useCallback(handleScroll, [handleScroll]);
   useEffect(() => {
     const listener = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
@@ -37,16 +37,16 @@ const Features = () => {
     }
 
     if (isVisible) {
-      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScrollCallback);
     } else {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollCallback);
     }
 
     return () => {
       listener.disconnect();
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollCallback);
     };
-  }, [elementRef, isVisible]);
+  }, [elementRef, isVisible, handleScrollCallback]);
 
   return (
     <div className="app-container" ref={elementRef}>
