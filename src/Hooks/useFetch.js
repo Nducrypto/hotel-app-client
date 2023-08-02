@@ -32,7 +32,7 @@ const useFetch = (url) => {
       setError(err.response.data.message);
     }
   };
-  return { data, loading, error, reFetch, API };
+  return { setData, data, loading, error, reFetch, API };
 };
 
 export default useFetch;

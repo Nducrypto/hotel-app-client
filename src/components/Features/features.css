@@ -1,0 +1,230 @@
+
+.app-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin-top: 6rem;
+  }
+  
+  .write-ups-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+
+  .phone-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-phone {
+    position: relative;
+    width: 200px;
+    height: 400px;
+    background-color: darkslateblue;
+    /* background-color: #333; */
+    border-radius: 20px;
+    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+  }
+  
+  .screen {
+    width: 200px;
+    height: 350px;
+    background-color:black;
+    /* background-color:wheat; */
+    
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .volume-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 70px;
+    background-color: #444;
+    border-radius: 5px;
+  }
+  
+  .power-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 5px;
+  }
+  
+  /* Centering the phone content horizontally */
+  .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .phone-content{
+    color: white;
+  }
+  /* Styling for the write-ups */
+  .write-up {
+    position: absolute;
+    width: 120px;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .write-up h2 {
+    font-size: 14px;
+    color: #333;
+  }
+  
+
+  .content{
+  font-size: 1.5rem;
+  font-weight: 700;
+   
+  }
+  .write-up-1 {
+    top: 1%;
+    left: 45%;
+   
+  }
+  
+  .write-up-2 {
+    top: 25%;
+    left: 80%;
+  }
+  
+  .write-up-3 {
+    top: 60%;
+    left: 65%;
+   
+  }
+  
+  .write-up-4 {
+    top: 85%;
+    right: 50%;
+  
+  }
+  
+  .write-up-5 {
+    top: 50%;
+    right: 80%;
+  }
+  
+  .write-up-6 {
+    top: 20%;
+    right: 70%;
+   
+  }
+  
+  
+  @media (max-width: 428px) {
+    .write-up {
+      width: 100px;
+      padding: 10px;
+    }
+  
+    .write-up h2 {
+      font-size: 12px;
+    }
+  
+   
+    .content{
+        font-size: 1rem;
+        font-weight: 500;
+         
+        }
+    .write-up-1 {
+      top: 14%;
+      left: 35%;
+    }
+  
+    .write-up-2 {
+      top: 29%;
+      left: 70%;
+    }
+  
+    .write-up-3 {
+      top: 60%;
+      left: 70%;
+    }
+  
+    .write-up-4 {
+      top: 80%;
+      right: 43%;
+      margin-top: -40px;
+    }
+  
+    .write-up-5 {
+      top: 50%;
+      right: 70%;
+    }
+  
+    .write-up-6 {
+      top: 22%;
+      right: 70%;
+    }
+  }
+  @media (max-width: 375px) {
+    .write-up {
+      width: 70px;
+      padding: 10px;
+    }
+  
+    .write-up h2 {
+      font-size: 12px;
+    }
+  
+   
+    .content{
+        font-size: 1rem;
+        font-weight: 500;
+         
+        }
+    .write-up-1 {
+      top: 5%;
+      left: 35%;
+    }
+  
+    .write-up-2 {
+      top: 22%;
+      left: 75%;
+    }
+  
+    .write-up-3 {
+      top: 60%;
+      left: 75%;
+    }
+  
+    .write-up-4 {
+      top: 85%;
+      right: 43%;
+    }
+  
+    .write-up-5 {
+      top: 50%;
+      right: 75%;
+    }
+  
+    .write-up-6 {
+      top: 22%;
+      right: 72%;
+    }
+  }
+
+

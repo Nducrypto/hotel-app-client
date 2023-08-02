@@ -3,7 +3,7 @@ import useFetch from "../../Hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 
 const PropertyList = () => {
-  const { data, loading } = useFetch("/hotels/countByType");
+  const { data } = useFetch("/hotels/countByType");
   const navigate = useNavigate();
   const images = [
     "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
@@ -16,34 +16,25 @@ const PropertyList = () => {
       <h3>Explore Property Type</h3>
 
       <div className="pList">
-        {loading ? (
-          <div style={{ textAlign: "center", fontSize: "1.5rem" }}>
-            {" "}
-            Loading..
-          </div>
-        ) : (
-          <>
-            {data &&
-              images.map((img, i) => (
-                <div
-                  className="pListItem"
-                  key={i}
-                  onClick={() => {
-                    navigate(`/${data[i]?.type}`, {
-                      state: { type: data[i]?.type },
-                    });
-                  }}
-                >
-                  <img src={img} alt="" className="pListImg" />
-                  <div className="pListTitles">
-                    <h1>
-                      {data[i]?.count} {data[i]?.type}
-                    </h1>
-                  </div>
-                </div>
-              ))}
-          </>
-        )}
+        {data &&
+          images.map((img, i) => (
+            <div
+              className="pListItem"
+              key={i}
+              onClick={() => {
+                navigate(`/${data[i]?.type}`, {
+                  state: { type: data[i]?.type },
+                });
+              }}
+            >
+              <img loading="lazy" src={img} alt="" className="pListImg" />
+              <div className="pListTitles">
+                <h1>
+                  {data[i]?.count} {data[i]?.type}
+                </h1>
+              </div>
+            </div>
+          ))}
       </div>
     </main>
   );

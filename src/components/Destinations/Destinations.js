@@ -46,35 +46,37 @@ const Featured = () => {
 
       {loading ? (
         <div style={{ textAlign: "center", fontSize: "1.5rem" }}>
-          Loading....
+          <div className="destination-custom-container">
+            <div className="destination-custom-loader"></div>
+          </div>
         </div>
       ) : (
         <Swiper
-          slidesPerView={2}
+          slidesPerView={2.2}
           spaceBetween={20}
           modules={[Pagination, Navigation]}
           loopFillGroupWithBlank={true}
           slidesPerGroup={1}
-          loop={true}
-          navigation={true}
         >
-          {featuredInfo?.map((p, i) => (
-            <SwiperSlide key={i}>
+          {featuredInfo?.map((data, index) => (
+            <SwiperSlide key={index}>
               <div
                 className="featuredItem"
                 onClick={() => {
-                  navigate(`/${p.destination}`, {
-                    state: { destination: p.destination },
+                  navigate(`/${data.destination}`, {
+                    state: { destination: data.destination },
                   });
                 }}
               >
-                <img src={p.img} alt="" className="featuredImg" />
+                <img
+                  loading="lazy"
+                  src={data.img}
+                  alt=""
+                  className="featuredImg"
+                />
                 <div className="featuredTitles">
-                  <div className="cityName">{p.city}</div>
-                  <div className="countCity">{p.count} Propertie(s)</div>
-                  {/* THIS IS FOR SECOND PATTERN IN THE BACKEND */}
-                  {/* <h1>{data[0]?.city}</h1>
-              <h2>{data[0]?.count} Properties</h2> */}
+                  <div className="cityName">{data.city}</div>
+                  <div className="countCity">{data.count} Propertie(s)</div>
                 </div>
               </div>
             </SwiperSlide>
